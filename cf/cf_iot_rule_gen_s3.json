@@ -1,0 +1,23 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "MyTopicRule": {
+      "Type": "AWS::IoT::TopicRule",
+      "Properties": {
+        "RuleName": "qqqq",
+        "TopicRulePayload": {
+          "RuleDisabled": "false",
+          "Sql": "SELECT * FROM 'CarVi/test/+/+/+'",
+          "Actions": [
+            {
+              "S3": {
+                "BucketName": "korea-s3",
+                "Key": "${parse_time('yyyy/MM/dd',timestamp(),'UTC')}/${topic()}/${parse_time('HH/mm/ss/SSS',timestamp(),'UTC')}/${principal()}/${newuuid()}"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

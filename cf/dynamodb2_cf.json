@@ -1,0 +1,71 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Parameters":{
+      "tableName":{
+        "Type": "String",
+        "Description": "Dynamo DB Table Name",
+      },
+      "KeyName":{
+        "Type": "String",
+        "Description": "Primary Key for Dynamo DB",
+      },
+      "KeyName2":{
+        "Type": "String",
+        "Description": "Sort Key for Dynamo DB",
+      },
+        "rcu":{
+        "Type": "Number",
+        "Description": "Read Capacity Units",
+      },
+        "wcu":{
+        "Type": "Number",
+        "Description": "Write Capacity Units",
+      }  
+  }, 
+  "Resources" : {
+    "CarViTable" : {
+      "Type" : "AWS::DynamoDB::Table",
+      "Properties" : {
+        "AttributeDefinitions" : [
+          {
+            "AttributeName" : {
+                "Ref": "KeyName"
+              },
+            "AttributeType" : "S"   
+          },
+         {
+            "AttributeName" : {
+                "Ref": "KeyName2"
+              },
+            "AttributeType" : "S"   
+          }
+        ],
+        "KeySchema" : [
+          {
+            "AttributeName" : {
+                "Ref": "KeyName"
+              },
+            "KeyType" : "HASH"
+          },
+          {
+            "AttributeName" : {
+                "Ref": "KeyName2"
+              },
+            "KeyType" : "RANGE"
+          }
+        ],
+        "ProvisionedThroughput" : {
+          "ReadCapacityUnits" : {
+                "Ref": "rcu"
+            },
+          "WriteCapacityUnits" : {
+                "Ref": "wcu"
+            }
+        },
+        "TableName" : {
+                "Ref": "tableName"
+        },
+      }
+    }
+  }
+}
