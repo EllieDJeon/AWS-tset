@@ -21,3 +21,10 @@ PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 brew install gcc  
 brew help  
 ```
+
+``` 
+
+svn ls https://github.com/getcarvi/Codes/trunk/environment/test  
+svn export https://github.com/getcarvi/Codes/trunk/environment/test  
+
+```
