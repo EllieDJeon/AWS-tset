@@ -98,3 +98,6 @@ python: https://www.python.org/downloads/mac-osx/
 boto3: https://github.com/boto/boto3  
 Chalice: https://github.com/aws/chalice 
 httpie: https://gist.github.com/BlakeGardner/5586954
+
+
+https://chalice.readthedocs.io/en/latest/topics/cfn.html
