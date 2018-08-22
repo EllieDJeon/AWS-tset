@@ -29,6 +29,7 @@ svn export https://github.com/getcarvi/Codes/trunk/environment/test
 
 ```
 
+
 # OS installation  
 ## 1. Install enviroment
 Website: https://brew.sh/ 
@@ -37,10 +38,15 @@ install 'brew'
 ``` 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-install python (pip)
+install python (pip/pip3)
 ``` 
 brew install python
-```
+sudo easy_install pip
+```  
+
+install boto3 
+
+`sudo pip install boto3`  
 
 install Chalice and httpie
 ``` 
@@ -74,10 +80,15 @@ aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
 region=YOUR_REGION (such as us-west-2, us-west-1, etc)
 ```
 
-
+Not in virtualenv,
+``` 
+sudo pip install awsebcli --upgrade --ignore-installed six
+sudo pip install chalice
+```
 
 
 reference 
 python: https://www.python.org/downloads/mac-osx/ 
+boto3: https://github.com/boto/boto3  
 Chalice: https://github.com/aws/chalice 
 httpie: https://gist.github.com/BlakeGardner/5586954
