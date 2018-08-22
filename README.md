@@ -87,6 +87,12 @@ sudo pip install chalice
 ```
 
 
+## Note  
+- rule name can not include '-' (use '_')  
+- 
+
+
+
 reference 
 python: https://www.python.org/downloads/mac-osx/ 
 boto3: https://github.com/boto/boto3  
