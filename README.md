@@ -11,6 +11,7 @@ deactivate
 
 
 ``` 
+brew install awscli
 sudo apt install linuxbrew-wrapper  
 brew install jq  
 sudo apt-get install build-essential  
