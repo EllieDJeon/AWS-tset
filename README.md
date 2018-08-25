@@ -35,26 +35,63 @@ svn export https://github.com/getcarvi/Codes/trunk/environment/test
 ## 1. Install enviroment
 Website: https://brew.sh/ 
 
-install 'brew'  
+### 1-1. install 'brew'  
 ``` 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-install python (pip/pip3)
+
+### 1-2. Installing Java 8
+Visit website: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html  
+
+``` 
+export JAVA_HOME=$(/usr/libexec/java_home)
+$ echo $JAVA_HOME
+/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
+```
+
+```
+brew cask install java
+```
+verify the java version
+``` 
+brew cask info java
+```
+
+
+### 1-3. install python (pip/pip3)
 ``` 
 brew install python
 sudo easy_install pip
 ```  
 
-install boto3 
 
-`sudo pip install boto3`  
+### 1-4. install boto3 
 
-install Chalice and httpie
+``` 
+sudo easy_install nose
+sudo easy_install tornado
+sudo -H pip install --ignore-installed six
+sudo pip install boto3
+```
+
+### 1-5. install jq
+``` 
+brew install jq  
+(optional)sudo apt-get install build-essential  
+echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >>~/.bash_profile  
+echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bash_profile  
+echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bash_profile  
+PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"  
+brew install gcc  
+brew help  
+```
+
+### 1-6. install Chalice and httpie
 ``` 
 brew install httpie
 
-pip install virtualenv  
-sudo /usr/bin/easy_install virtualenv  
+sudo pip install virtualenv
+virtualenv ~/.virtualenvs/chalice-demo
 source ~/.virtualenvs/chalice-demo/bin/activate
 
 # Double check you have python3.6
@@ -71,7 +108,8 @@ pip install chalice
 chalice --help
 
 ```
-## Credentials
+
+Credentials
 ``` 
 $ mkdir ~/.aws
 $ cat >> ~/.aws/config
@@ -95,6 +133,7 @@ sudo pip install chalice
 
 
 reference 
+Java installaion & java home setting: https://www.mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/
 python: https://www.python.org/downloads/mac-osx/ 
 boto3: https://github.com/boto/boto3  
 Chalice: https://github.com/aws/chalice 
