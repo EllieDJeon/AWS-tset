@@ -134,6 +134,11 @@ sudo pip install awsebcli --upgrade --ignore-installed six
 sudo pip install chalice
 ```
 
+Error  
+-pipenv command not found
+`sudo -H pip install -U pipenv` 
+
+
 
 ## Note  
 - rule name can not include '-' (use '_')  
