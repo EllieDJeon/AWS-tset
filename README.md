@@ -111,12 +111,21 @@ chalice --help
 
 Credentials
 ``` 
-$ mkdir ~/.aws
-$ cat >> ~/.aws/config
+mkdir ~/.aws
+cat >> ~/.aws/config
 [default]
 aws_access_key_id=YOUR_ACCESS_KEY_HERE
 aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
 region=YOUR_REGION (such as us-west-2, us-west-1, etc)
+```
+or
+``` 
+aws configure
+
+``` 
+check the credentials
+``` 
+aws sts get-caller-identity
 ```
 
 Not in virtualenv,
